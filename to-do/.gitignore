@@ -1,0 +1,16 @@
+gradlew
+
+bin/
+
+build/
+
+\.gradle/
+
+\.settings/
+
+\.project
+
+\.classpath
+
+logs/
+/.nb-gradle/
