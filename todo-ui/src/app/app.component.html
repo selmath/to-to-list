@@ -1,3 +1,32 @@
 <h1>
   {{title}}
 </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of todo; let i=index">
+            <th>{{i}}</th>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td></td>
+            <td><button type="button" (click)="removeTask(task)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+<h2>Add Task!</h2>
+<div>
+    <label>Title: </label>
+    <input [(ngModel)]="todoTitle" placeholder="title"/>    
+</div>
+<div>
+    <label>Description: </label>
+    <input [(ngModel)]="todoDesc" placeholder="Description"/>
+    <button type="button" (click)="saveToDo()">Add</button>
+</div>
