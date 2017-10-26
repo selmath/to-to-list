@@ -13,9 +13,11 @@ export class AppComponent {
   todo: any;
   todoTitle: any;
   todoDesc: any;
+  status: any;
   constructor(public http: Http) {
     //console.log('Hello ServiceImplProvider Provider');
     this.todo = [];
+    this.status = "inprogress";
     this.getToDoList();
   }
 
@@ -104,8 +106,8 @@ export class AppComponent {
   getToDoList(){
     var payload = {
          "activityType":"todo.all",
-         "status":"inprogress"
-    }
+         "status":this.status
+    };
     this.invokeHTTP("GET",environment.url+"/todo/list?payload="+encodeURIComponent(JSON.stringify(payload)),"")
     .then((response) => {
       console.log("response"+ response);
@@ -128,7 +130,16 @@ export class AppComponent {
   }
   removeTask(task){
     console.log(JSON.stringify(task));
-    this.invokeHTTP("POST",environment.url+"/todo/remove",task)
+     var payload = {
+         "id":task.id,
+         "title":task.title,
+         "description":task.description,
+         "status":"inprogress",
+         "remarks":"",
+         "name":"selmath",
+         "email":"selmathmu2008@gmail.com"
+    };
+    this.invokeHTTP("POST",environment.url+"/todo/remove",payload)
     .then((response) => {
       console.log("response"+ response);
             if(response["code"] == 200){

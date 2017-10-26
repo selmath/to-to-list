@@ -5,6 +5,7 @@
  */
 package com.todo.service;
 
+import java.util.Collection;
 import org.json.JSONObject;
 
 
@@ -18,8 +19,10 @@ public interface ToDoService {
    
 
     public void saveToDo(net.sf.json.JSONObject jsonObject);
+    
+    public void removeToDo(net.sf.json.JSONObject jsonObject);
 
-    public void getToDoList(net.sf.json.JSONObject payload);
+    public Collection getToDoList(net.sf.json.JSONObject payload);
     
    
 }

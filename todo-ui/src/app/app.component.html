@@ -20,6 +20,14 @@
         </tr>
     </tbody>
 </table>
+<h2>List Task!</h2>
+<div>
+<select [(ngModel)]="status">
+    <option value="inprogress">Pending</option>
+    <option value="completed">Completed</option>
+</select>
+<button type="button" (click)="getToDoList()">List</button>
+</div>
 <h2>Add Task!</h2>
 <div>
     <label>Title: </label>

@@ -5,7 +5,7 @@
  */
 package com.todo.dao;
 
-import org.json.JSONObject;
+import java.util.Collection;
 
 /**
  *
@@ -13,13 +13,11 @@ import org.json.JSONObject;
  */
 public interface MongoDao{
 
-  
-    public void updateAmlResponseTime(JSONObject jsonObject);
-
-    public void updateAmlResponse(String responseString);
-    
+   
     public void saveToDo(net.sf.json.JSONObject jsonObject);
     
-    public void getToDoList(net.sf.json.JSONObject jsonObject);
+    public Collection getToDoList(net.sf.json.JSONObject jsonObject);
+
+    public void removeToDo(net.sf.json.JSONObject jsonObject);
     
 }

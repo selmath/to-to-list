@@ -13,6 +13,7 @@ import static com.todo.common.ToDoConstant.PAYLOAD;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import static net.logstash.logback.marker.Markers.append;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
@@ -146,20 +147,13 @@ public abstract class ToDoCommons {
         response.put(MESSAGE, message);
         response.put(PAYLOAD, payoad);
         return response.toString();
-    }
+    } 
     
-     void parseXml(){
-        try {
-            JSONParser parser = new JSONParser();
-            //Use JSONObject for simple JSON and JSONArray for array of JSON.
-            JSONObject data = (JSONObject) parser.parse(
-                  new FileReader("/resources/recon-json.json"));//path to the JSON file.
-            System.out.println(data.toString());
-
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
-     }
-    
-    
+     public final String buildResponse(final int code, final String message, final LinkedHashMap payoad) {
+        final JSONObject response = new JSONObject();
+        response.put(CODE, code);
+        response.put(MESSAGE, message);
+        response.put(PAYLOAD, payoad);
+        return response.toString();
+    } 
 }

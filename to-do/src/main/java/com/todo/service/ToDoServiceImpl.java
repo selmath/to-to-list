@@ -6,6 +6,7 @@
 package com.todo.service;
 
 import com.todo.dao.MongoDao;
+import java.util.Collection;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,8 +41,13 @@ public class ToDoServiceImpl implements ToDoService {
     }
 
     @Override
-    public void getToDoList(net.sf.json.JSONObject payload) {
-        mongoDao.getToDoList(payload);
+    public Collection getToDoList(net.sf.json.JSONObject payload) {
+        return mongoDao.getToDoList(payload);
+    }
+
+    @Override
+    public void removeToDo(net.sf.json.JSONObject jsonObject) {
+        mongoDao.removeToDo(jsonObject);
     }
 
 }
